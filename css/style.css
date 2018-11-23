@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+  font-family: "Merriweather", sans-serif;
+  background-color: #fcc496;
+}
+
+.converter h1 {
+  font-size: 24px;
+}
+
+.output {
+  font-size: 18px;
+  padding: 10px 0;
+}
+/*# sourceMappingURL=style.css.map */

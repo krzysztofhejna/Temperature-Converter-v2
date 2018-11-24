@@ -1,46 +1,58 @@
 'use strict';
-var button_1 = document.getElementById('converterCtoF__button');
-var output_1 = document.getElementById('converterCtoF__output');
-var tidbit_1 = document.getElementById('converterCtoF__tidbit');
-var button_2 = document.getElementById('converterFtoC__button');
-var output_2 = document.getElementById('converterFtoC__output');
-var tidbit_2 = document.getElementById('converterFtoC__tidbit');
+var button1 = document.getElementById('converterCtoF-btn');
+var converterCtoF = document.getElementById('converterCtoF')
+var button2 = document.getElementById('converterFtoC-btn');
+var converterFtoC = document.getElementById('converterFtoC')
 var temperatureC;
 var temperatureF;
-button_1.addEventListener('click', function(){
 
-    temperatureC = window.prompt('What is the temperature in Celcius?');
-    if (temperatureC && !isNaN(temperatureC) && temperatureC > -273.15) {
-        temperatureF = 1.8 * temperatureC + 32;
-        output_1.innerHTML =(temperatureC + ' degrees Celcius is ' + temperatureF + ' degrees Fahrenheit.<br><br');
-        if (temperatureC < 0) {
-            tidbit_1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a solid state.<br><br>');
-        } else if (temperatureC >= 0 && temperatureC < 100) {
-            tidbit_1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a liquid state.<br><br>');
-        } else {
-            tidbit_1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a vapor state.<br><br>');
-        }
+button1.addEventListener('click', function(){
+    var minC = -273.15 // absolute zero temperature in Celsius
+    var output1 = converterCtoF.querySelector('#converterCtoF-output');
+    var tidbit1 = converterCtoF.querySelector('#converterCtoF-tidbit');
+    temperatureC = window.prompt('What is the temperature in Celsius?');
+
+    if (!temperatureC || isNaN(temperatureC) || temperatureC <= minC) {
+        return alert('Please enter a valid temperature in Celsius');;
     }
-    else {
-        alert('Please enter a valid temperature in Celcius');
-    };
+
+    temperatureF = 1.8 * temperatureC + 32; // formula to convert temperature in Celsius to Fahrenheit
+    output1.innerHTML = (temperatureC + ' degrees Celsius is ' + temperatureF + ' degrees Fahrenheit.<br><br');
+
+    if (temperatureC < 0) {
+        return tidbit1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a solid state.<br><br>');
+    }
+
+    if (temperatureC >= 0 && temperatureC < 100) {
+        return tidbit1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a liquid state.<br><br>');
+    }
+
+    return tidbit1.innerHTML = ('At ' + temperatureC + ' degrees Celcius water is in a vapor state.<br><br>');
 });
 
-button_2.addEventListener('click', function(){
 
-    temperatureF = window.prompt('What is the temperature in Fahrenheit?');
-    if (temperatureF && !isNaN(temperatureF) && temperatureF > -459.67) {
-        temperatureC = 5 * (temperatureF - 32)/9;
-        output_2.innerHTML =(temperatureF + ' degrees Fahrenheit is ' + temperatureC + ' degrees Celsius.<br><br');
-        if (temperatureF < 32) {
-            tidbit_2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a solid state.<br><br>');
-        } else if (temperatureF >= 32 && temperatureF < 212) {
-            tidbit_2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a liquid state.<br><br>');
-        } else {
-            tidbit_2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a vapor state.<br><br>');
-        }
+button2.addEventListener('click', function(){
+    var minF = -459.67; // absolute zero temperature in Fahrenheit
+    var tempF1 = 32; // temperature of 0 degrees Celsius in Fahrenheit
+    var tempF2 = 212 // temperature of 100 degrees Celsius in Fahrenheit
+    var output2 = converterFtoC.querySelector('#converterFtoC-output');
+    var tidbit2 = converterFtoC.querySelector('#converterFtoC-tidbit');
+    temperatureF = window.prompt('What is the temperature in Fahrenheit');
+
+    if (!temperatureF || isNaN(temperatureF) || temperatureF <= minF) {
+        return alert('Please enter a valid temperature in Fahrenheit');;
     }
-    else {
-        alert('Please enter a valid temperature in Celcius');
-    };
+
+    temperatureC = (temperatureF - 32) * (5/9); // formula to convert temperature in Fahrenheit to Celsius
+    output2.innerHTML =(temperatureF + ' degrees Fahrenheit is ' + temperatureC + ' degrees Celsius.<br><br');
+
+    if (temperatureC < tempF1) {
+        return tidbit2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a solid state.<br><br>');
+    }
+
+    if (temperatureC >= tempF1 && temperatureC < tempF2) {
+        return tidbit2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a liquid state.<br><br>');
+    }
+
+    return tidbit2.innerHTML = ('At ' + temperatureF + ' degrees Fahrenheit water is in a vapor state.<br><br>');
 });

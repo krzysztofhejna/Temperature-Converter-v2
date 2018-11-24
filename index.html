@@ -10,20 +10,21 @@
     </head>
     <body>
         <main class="container">
-            <div class="converterCtoF">
+            <div class="converterCtoF" id="converterCtoF">
                 <h1>Celcius - Fahrenheit temperature converter</h1>
-                <button class="btn btn-primary" id="converterCtoF__button">Convert</button>
-                <div class="output" id="converterCtoF__output">Click the button to convert the temperature</div>
-                <div class="tidbit" id="converterCtoF__tidbit"></div>
+                <button class="btn btn-primary" id="converterCtoF-btn">Convert</button>
+                <div class="output" id="converterCtoF-output">Click the button to convert the temperature</div>
+                <div class="tidbit" id="converterCtoF-tidbit"></div>
             </div>
-            <div class="converterFtoC">
+            <div class="converterFtoC" id="converterFtoC">
                 <h1>Fahrenheit - Celcius temperature converter</h1>
-                <button class="btn btn-primary" id="converterFtoC__button">Convert</button>
-                <div class="output" id="converterFtoC__output">Click the button to convert the temperature</div>
-                <div class="tidbit" id="converterFtoC__tidbit"></div>
+                <button class="btn btn-primary" id="converterFtoC-btn">Convert</button>
+                <div class="output" id="converterFtoC-output">Click the button to convert the temperature</div>
+                <div class="tidbit" id="converterFtoC-tidbit"></div>
             </div>
         </main>
         <script type="text/javascript" src="js/script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>

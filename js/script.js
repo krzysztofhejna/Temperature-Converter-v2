@@ -7,7 +7,6 @@
     var temperatureC;
     var temperatureF;
 
-    // This function determines if the entered input is valid
     var isInputValid = function(temperature, min) {
         if (!temperature || isNaN(temperature) || temperature <= min) {
             return alert('Please enter a valid temperature');;
@@ -16,7 +15,6 @@
         return true;
     }
 
-    // This function converts from Celsius to Fahrenheit
     var convertCtoF = function (temperatureC) {
         temperatureF = 1.8 * temperatureC + 32; // formula to convert temperature in Celsius to Fahrenheit
         temperatureF = +temperatureF.toFixed (2); // limiting the output temperature to at most 2 decimal points
@@ -25,16 +23,14 @@
         return temperatureF;
     }
 
-    // This function converts from Fahrenheit to Celsius
     var convertFtoC = function (temperatureF) {
         temperatureC = (temperatureF - 32) * (5/9); // formula to convert temperature in Fahrenheit to Celsius
-        temperatureC = +temperatureC.toFixed(2); // limiting the output temperature to at most 2 decimal points
+        temperatureC = +temperatureC.toFixed(2);
         var output2 = converterFtoC.querySelector('#converterFtoC-output');
         output2.innerHTML =(temperatureF + ' degrees Fahrenheit is ' + temperatureC + ' degrees Celsius.<br><br');
         return temperatureC;
     }
 
-    // This function will provide an information on the state of water at input temperature
     var waterState = function (temperatureC, tidbit) {
         if (temperatureC < 0) {
             return tidbit.innerHTML = ('At this temperature water is in a solid state.<br><br>');
